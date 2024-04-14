@@ -2,7 +2,7 @@
 
 ## Sistema de temperatura por CEP
 
-  Objetivo: Desenvolver um sistema em Go que receba um CEP, identifica a cidade e retorna o clima atual (temperatura em graus celsius, fahrenheit e kelvin). Esse sistema deverá ser publicado no Google Cloud Run.
+Objetivo: Desenvolver um sistema em Go que receba um CEP, identifica a cidade e retorna o clima atual (temperatura em graus celsius, fahrenheit e kelvin). Esse sistema deverá ser publicado no Google Cloud Run.
 
 ## Requisitos:
 
@@ -27,7 +27,7 @@ Deverá ser realizado o deploy no Google Cloud Run.
 
 Utilize a API viaCEP (ou similar) para encontrar a localização que deseja consultar a temperatura: https://viacep.com.br/
 Utilize a API WeatherAPI (ou similar) para consultar as temperaturas desejadas: https://www.weatherapi.com/
-Para realizar a conversão de Celsius para Fahrenheit, utilize a seguinte fórmula: F = C * 1,8 + 32
+Para realizar a conversão de Celsius para Fahrenheit, utilize a seguinte fórmula: F = C \* 1,8 + 32
 Para realizar a conversão de Celsius para Kelvin, utilize a seguinte fórmula: K = C + 273
 Sendo F = Fahrenheit
 Sendo C = Celsius
@@ -39,3 +39,7 @@ O código-fonte completo da implementação.
 Testes automatizados demonstrando o funcionamento.
 Utilize docker/docker-compose para que possamos realizar os testes de sua aplicação.
 Deploy realizado no Google Cloud Run (free tier) e endereço ativo para ser acessado.
+
+# URL para teste local
+
+http://localhost:8080/temperatura/89199000

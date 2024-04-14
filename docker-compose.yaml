@@ -1,0 +1,13 @@
+version: '3'
+services:
+  app:
+    build: .
+    container_name:  lab1-sistema-temperatura
+    ports:
+      - "8080:8080"
+
+  test:
+    build: .
+    command: go test ./...
+    depends_on:
+      - app

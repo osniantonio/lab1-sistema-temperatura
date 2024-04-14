@@ -40,6 +40,10 @@ Testes automatizados demonstrando o funcionamento.
 Utilize docker/docker-compose para que possamos realizar os testes de sua aplicação.
 Deploy realizado no Google Cloud Run (free tier) e endereço ativo para ser acessado.
 
-# URL para teste local
+# Para subir a aplicação
 
-http://localhost:8080/temperatura/89199000
+docker-compose up -d --build
+
+# URL local
+
+http://localhost:8080/temperatures/89198-000

@@ -28,13 +28,13 @@ func handleClimaRequest(w http.ResponseWriter, r *http.Request) {
 
 	cep := mux.Vars(r)["cep"]
 
-	isValid, StatusCode, InvalidMessage, Endereco := cepPkg.SearchAddress(ctx, cep)
+	isValid, StatusCode, InvalidMessage, Address := cepPkg.SearchAddress(ctx, cep)
 	if !isValid {
 		http.Error(w, InvalidMessage, StatusCode)
 		return
 	}
 
-	isValid, StatusCode, InvalidMessage, Temperature := climatePkg.SearchTemperature(ctx, Endereco.City)
+	isValid, StatusCode, InvalidMessage, Temperature := climatePkg.SearchTemperature(ctx, Address.City)
 	if !isValid {
 		http.Error(w, InvalidMessage, StatusCode)
 		return

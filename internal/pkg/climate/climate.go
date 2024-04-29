@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"net/url"
 )
 
 const weatherAPIKey = "8a140ace6b42089b39b3450624b0f495"
@@ -32,10 +33,10 @@ func NewTemperature(tempC float64) Temperatura {
 	return temp
 }
 
-func SearchTemperature(ctx context.Context, cidade string) (bool, int, string, Temperatura) {
-	url := fmt.Sprintf("http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s&units=metric", cidade, weatherAPIKey)
+func SearchTemperature(ctx context.Context, city string) (bool, int, string, Temperatura) {
+	urlStr := fmt.Sprintf("http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s&units=metric", url.QueryEscape(city), weatherAPIKey)
 
-	resp, err := http.Get(url)
+	resp, err := http.Get(urlStr)
 	if err != nil {
 		if errors.Is(err, context.Canceled) {
 			return false, http.StatusRequestTimeout, "request timeout", Temperatura{}
@@ -45,7 +46,8 @@ func SearchTemperature(ctx context.Context, cidade string) (bool, int, string, T
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return false, resp.StatusCode, "API temperature request failed", Temperatura{}
+		errorMessage := fmt.Sprintf("API temperature request failed: code %d, status: %s, city: %s", resp.StatusCode, resp.Status, city)
+		return false, resp.StatusCode, errorMessage, Temperatura{}
 	}
 
 	decoder := json.NewDecoder(resp.Body)

@@ -40,10 +40,31 @@ Testes automatizados demonstrando o funcionamento.
 Utilize docker/docker-compose para que possamos realizar os testes de sua aplicação.
 Deploy realizado no Google Cloud Run (free tier) e endereço ativo para ser acessado.
 
-# Para subir a aplicação
+# Para subir a aplicação via docker compose
 
-docker-compose up -d --build
+    docker-compose up -d --build
+
+# Utilizando o Makefile
+
+    Compilar e iniciar o aplicativo:
+        make build
+
+    Subir o aplicativo:
+        make up
+
+    Parar e remover os contêineres do aplicativo:
+        make down
+
+    Executar testes:
+        make test
+
+    Ver os logs do app:
+        make logs
+
+# Para ver os logs do app
+
+    docker-compose logs app
 
 # URL local
 
-http://localhost:8080/temperatures/89198-000
+    http://localhost:8080/temperatures/89199-000

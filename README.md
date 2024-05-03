@@ -68,3 +68,7 @@ Deploy realizado no Google Cloud Run (free tier) e endereço ativo para ser aces
 # URL local
 
     http://localhost:8080/temperatures/89199-000
+
+# URL no Google Cloud via Cloud Run
+
+    https://lab1-sistema-temperatura-5met2xadwa-rj.a.run.app/temperatures/89198-000

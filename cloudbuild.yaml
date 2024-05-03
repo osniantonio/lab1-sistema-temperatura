@@ -1,0 +1,11 @@
+steps:
+  # Instalação dos componentes do gcloud
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:alpine'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        apk --no-cache add python3
+        gcloud components install alpha beta gke-gcloud-auth-plugin kubectl skaffold minikube
+
+  # Aqui você adicionaria os passos adicionais para build e deploy do seu aplicativo
